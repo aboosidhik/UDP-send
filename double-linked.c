@@ -1,4 +1,4 @@
-/* Inserting a value below a particular value and removing some values from bottom part of list */
+/* Inserting a value below a particular value and removing some values from bottom part of list 
 aboosidhik@gmail.com
  */
 #include <stdio.h>
