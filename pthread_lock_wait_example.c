@@ -3,7 +3,7 @@
 #include <string.h>
 #include <signal.h>
 
-/* compile with gcc -pthread lockwait.c */
+/* compile with gcc -pthread pthread_lock_wait_example.c */
 
 pthread_cond_t cv;
 pthread_mutex_t lock;
