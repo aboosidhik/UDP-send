@@ -1,3 +1,4 @@
+//g++ -ggdb `pkg-config --cflags --libs opencv` video_big_small_three.cpp -o video_big_small_three
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/cuda.hpp>
