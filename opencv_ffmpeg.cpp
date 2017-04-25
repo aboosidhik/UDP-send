@@ -205,7 +205,19 @@ int main(int argc, char* argv[])
     } while (!end_of_stream || got_pkt);
     av_write_trailer(outctx);
     std::cout << nb_frames << " frames encoded" << std::endl;
+//AVHWAccel h264_dxva2_hwaccel = NULL;
 
+	AVHWAccel* hwaccel = NULL;
+ while(hwaccel = av_hwaccel_next(hwaccel))
+        {
+              //  if(hwaccel->id == AV_CODEC_ID_H264)
+               // {
+                        //h264_dxva2_hwaccel = hwaccel;
+                        printf("dxva2_hwaccel = %s \n",hwaccel->name);
+                        //break;
+               // }
+        }     
+ 
     av_frame_free(&frame);
     avcodec_close(vstrm->codec);
     avio_close(outctx->pb);
