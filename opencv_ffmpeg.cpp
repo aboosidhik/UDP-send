@@ -1,3 +1,5 @@
+
+ g++ -ggdb `pkg-config --cflags --libs opencv` -lavfilter -lavutil -lswresample -lswscale -lavdevice $(pkg-config --cflags --libs libavformat libavcodec) -lpostproc -lpthread opencv_ffmpeg.cpp -o op_ff
 #include <iostream>
 #include <vector>
 // FFmpeg
@@ -87,16 +89,16 @@ int main(int argc, char* argv[])
     }
 
     // create new video stream
-    AVCodec* vcodec = avcodec_find_encoder(outctx->oformat->video_codec);
-    //AVCodec* vcodec = avcodec_find_decoder_by_name("h264_nvenc");
+    //AVCodec* vcodec = avcodec_find_encoder(outctx->oformat->video_codec);
+    AVCodec* vcodec = avcodec_find_encoder_by_name("h264_nvenc");
     AVStream* vstrm = avformat_new_stream(outctx, vcodec);
   //  std::cout<< "name: " << vcodec->name << "\n";
     if (!vstrm) {
         std::cerr << "fail to avformat_new_stream";
         return 2;
     }
-    avcodec_get_context_defaults3(vstrm->codec, vcodec);
-    //avcodec_get_context_defaults3(vstrm->codec, avcodec_find_decoder_by_name("h264_nvenc"));
+    //avcodec_get_context_defaults3(vstrm->codec, vcodec);
+    avcodec_get_context_defaults3(vstrm->codec, avcodec_find_encoder_by_name("h264_nvenc"));
     vstrm->codec->width = dst_width;
     vstrm->codec->height = dst_height;
     vstrm->codec->pix_fmt = vcodec->pix_fmts[0];
