@@ -73,16 +73,7 @@ void janus_pp_handle_signal(int signum);
 void janus_pp_handle_signal(int signum) {
 	working = 0;
 }
-/*! \file    pp-webm.c
- * \author   Lorenzo Miniero <lorenzo@meetecho.com>
- * \copyright GNU General Public License v3
- * \brief    Post-processing to generate .webm files
- * \details  Implementation of the post-processing code (based on FFmpeg)
- * needed to generate .webm files out of VP8/VP9 RTP frames.
- *
- * \ingroup postprocessing
- * \ref postprocessing
- */
+
 
 
 /* WebRTC stuff (VP8/VP9) */
