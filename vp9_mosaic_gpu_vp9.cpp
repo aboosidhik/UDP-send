@@ -1,3 +1,4 @@
+//g++ tt_cap.cpp -I/usr/local/include -L/usr/local/lib -lavcodec -lavformat -lswscale -lavfilter -lavutil -lx264 -lz -lm -lopencv_imgproc -lopencv_highgui -lopencv_core `pkg-config --cflags --libs opencv`
 extern "C"
 {
 #include <libavcodec/avcodec.h>
