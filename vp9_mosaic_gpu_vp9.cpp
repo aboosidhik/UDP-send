@@ -188,7 +188,7 @@ static int flush_encoder(unsigned int stream_index){
     return ret;
 }
 
-#define USE_OPENCV //注释这一句后运行，对应不加水印的输出视频
+#define USE_OPENCV 
 
 #ifdef USE_OPENCV
 #include <opencv2/opencv.hpp>
@@ -198,15 +198,13 @@ using namespace std;
 using namespace cv;
 using namespace cuda;
 
-
-/** 这个函数里使用OpenCV处理图像 **/
 void addWaterMarkOnTheImage(Mat &imageFrame)
 {
-    Mat waterMark = Mat(100,100,CV_8UC3,Scalar(0,255,255)); //模拟水印图像
+    Mat waterMark = Mat(100,100,CV_8UC3,Scalar(0,255,255)); 
     
     Mat imageROI = imageFrame(Rect(10,10,waterMark.cols,waterMark.rows));
     
-    cv::addWeighted(imageROI, 0, waterMark, 1, 0, imageROI); //添加水印到视频图像帧上
+    cv::addWeighted(imageROI, 0, waterMark, 1, 0, imageROI); 
 }
 /** ------ **/
 
@@ -219,8 +217,7 @@ AVFrame* useOpenCVProcessFrame(AVFrame *frame, int stream_index)
     AVCodecContext *pCodecCtx = in_stream->codec;
     
     AVFrame  *pFrameRGB = NULL;
-    
-    /* 源图像格式向BGR24转换 */
+
     struct SwsContext * img_convert_ctx = NULL;
     if(img_convert_ctx == NULL){
         img_convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height,
@@ -239,7 +236,7 @@ AVFrame* useOpenCVProcessFrame(AVFrame *frame, int stream_index)
     
     memcpy(imageFrame.data, out_bufferRGB, size);
     delete[] out_bufferRGB;
-    /*** 源图像格式向BGR24转换结束 ***/
+
 
     
     addWaterMarkOnTheImage(imageFrame);//使用OpenCV向图像添加水印
@@ -261,10 +258,10 @@ AVFrame* useOpenCVProcessFrame(AVFrame *frame, int stream_index)
     //waitKey(1);
     
 
-    //OpenCV Mat图像数据转为FFmpeg AVFrame图像帧数据
+
     avpicture_fill((AVPicture *)pFrameRGB, imageFrame.data,AV_PIX_FMT_BGR24, pCodecCtx->width, pCodecCtx->height);
 
-    /* BGR24向源图像格式转换 */
+
     struct SwsContext * convert_ctx = NULL;
     if(convert_ctx == NULL){
         convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height,
@@ -281,7 +278,7 @@ AVFrame* useOpenCVProcessFrame(AVFrame *frame, int stream_index)
     sws_scale(convert_ctx, pFrameRGB->data, pFrameRGB->linesize, 0, pCodecCtx->height, srcFrame->data, srcFrame->linesize);
     
     delete[] out_buffer;
-    /*** BGR24向源图像格式转换结束 ***/
+
     av_free(pFrameRGB);
     
     srcFrame->width = frame->width;
@@ -367,10 +364,10 @@ int main(int argc, char **argv){
 
                 memcpy(imageFrame.data, out_bufferRGB, size);
                 delete[] out_bufferRGB;
-                /*** 源图像格式向BGR24转换结束 ***/
 
 
-                //addWaterMarkOnTheImage(imageFrame);//使用OpenCV向图像添加水印
+
+ 
                 Mat image_re(imageFrame.rows,imageFrame.cols, CV_8UC3);
                 cuda::GpuMat d_src(imageFrame);
                 cuda::GpuMat d_src_image(image_re);
@@ -387,7 +384,6 @@ int main(int argc, char **argv){
                 
                 avpicture_fill((AVPicture *)pFrameRGB, image_re.data,AV_PIX_FMT_BGR24, pCodecCtx->width, pCodecCtx->height);
 
-                /* BGR24向源图像格式转换 */
                 struct SwsContext * convert_ctx = NULL;
                 if(convert_ctx == NULL){
                     convert_ctx = sws_getContext(pCodecCtx->width, pCodecCtx->height,
@@ -404,7 +400,7 @@ int main(int argc, char **argv){
                 sws_scale(convert_ctx, pFrameRGB->data, pFrameRGB->linesize, 0, pCodecCtx->height, srcFrame->data, srcFrame->linesize);
 
                 delete[] out_buffer;
-                /*** BGR24向源图像格式转换结束 ***/
+          
                 av_free(pFrameRGB);
 
                 srcFrame->width = frame->width;
