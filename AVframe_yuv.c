@@ -1,3 +1,5 @@
+//gcc mcvb.c -o mcvb -ljansson -lavfilter -lavutil -lswresample -lswscale -lavdevice $(pkg-config --cflags --libs libavformat libavcodec) -lpostproc -lpthread `pkg-config --cflags --libs glib-2.0` `pkg-config --cflags --libs opus` `pkg-config --cflags --libs ogg` -levent -lrabbitmq -Wall -lvpx -g
+
 void SaveAvFrame(AVFrame *avFrame)
 {
     FILE *fDump = fopen("...", "ab");
