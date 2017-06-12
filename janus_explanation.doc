@@ -1,0 +1,39 @@
+INIT is equal to create sesión
+STOP is equal to destroy session.
+ADD client is equal to create handle.
+Remove client is equal to destroy handle.
+How to create session (init)?
+janus_session *session = (janus_session *)g_malloc0(sizeof(janus_session));
+janus_mutex_init(&session->mutex);
+janus_mutex_lock(&sessions_mutex);
+g_hash_table_insert(sessions, janus_uint64_dup(session->session_id), session);
+janus_mutex_unlock(&sessions_mutex);
+
+Attach plugin (or add client)
+janus_ice_handle_create(void *gateway_session, const char *opaque_id)
+contains
+janus_ice_handle *handle = (janus_ice_handle *)g_malloc0(sizeof(janus_ice_handle));
+janus_ice_handle -> void *session; + janus_plugin_session *app_handle;
+then link the session created earlier to the handle.
+handle->sesión = janus_session *session
+janus_mutex_init(&handle->mutex);
+janus_plugin_session -> contains the pointer to sesión and plugin handle.
+gint janus_ice_handle_attach_plugin(void *gateway_session, guint64 handle_id, janus_plugin *plugin) {
+janus_plugin_session *session_handle = g_malloc0(sizeof(janus_plugin_session)); //plugin.h
+this contains the plugin registered so this enable to create a plugin session using janus_plugin_session *session_handle as one argument that conatins the details of ice handle that was created earlier. 
+This creates the session for example audio bridge janus_audiobridge_create_session(janus_plugin_session *handle, int *error)
+
+REMOVE CLIENT or DETACH
+gint janus_ice_handle_destroy(void *gateway_session, guint64 handle_id)
+janus_session *session = (janus_session *)gateway_session;
+janus_ice_handle *handle = janus_ice_handle_find(session, handle_id);
+janus_mutex_lock(&session->mutex);
+janus_plugin *plugin_t = (janus_plugin *)handle->app;
+janus_mutex_lock(&old_plugin_sessions_mutex);
+handle->app_handle->stopped = 1;
+plugin_t->destroy_session(handle->app_handle, &error);
+void janus_audiobridge_destroy_session(janus_plugin_session *handle, int *error)
+contains 
+janus_mutex_lock(&sessions_mutex);
+janus_audiobridge_hangup_media(handle);
+contains
