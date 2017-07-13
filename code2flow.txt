@@ -1,0 +1,81 @@
+//algorithm
+Numer of files can be greater
+than 9. But at any time only 9 is possible;
+
+Need to check if all files are inside the 9 at one time;
+Need to check if any of the timestamps first or last times are equal;
+for(No of fs){
+  f1 fst and lst tstmp;
+  f2 =  f1->next;
+  for (No of fs -1){
+    if(f1 fststmp = f2 fststmp || f1 lsttmp == f2 lststmp){
+      This file have same first or last stmp;
+      Assign a value in struct that it has same timestamp;
+      
+    } 
+  }
+}
+
+Sort the files based on first timestamp of each file using GLIST(sort the equal issue);
+Sort the files based on the last timestamp using GLISt (sort the equal issue);
+Assign the first element of first stamp list;
+
+//counting simulatenous streams maximum at 9
+for(file size)
+{
+  file1 first and last timestamp;
+  file1 count simulamtenous 
+  for(file size-1)
+  {
+    file2 length, first, and last timestamp;
+    if(file1 last timestamp < file2 first timestamp ){
+      End before the start of the first file;
+    } else if(file1 last timestamp > file2 first timestamp){
+      while(file1 last timestamp > file2 first timestamp){
+        file2 first timestamp = file2 first timestamp->next;
+      }
+      array[count] = file2 correct timestamp after or equal;
+      count++;
+      
+    }
+    
+  }
+  if(count <= 9){
+    this file is ok
+  } else {
+    this file is not correct;
+  }
+}
+
+
+//here all filee are with maximum 9 streams 
+//first lowest timestamp
+array length = glist length;
+for(i<no of fs){
+  f[i] = first packet of each file;
+  glist = glist->next;
+}
+for (i < no of fs){
+glist lowest time stamp;
+glist lowest for last timestamp;
+lowest file numbers
+if(current timestamp < lowest timetsamp)
+  array[count] = 
+
+  
+}
+for (i < no of fs){
+  
+  for (i < no of fs -1) {
+    
+  }
+  
+}
+if(f1->equal_tmp_start == 1 ){
+  
+}
+
+while(first < second){
+  
+}
+end;
