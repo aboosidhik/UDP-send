@@ -1,4 +1,3 @@
-//algorithm
 Numer of files can be greater
 than 9. But at any time only 9 is possible;
 
@@ -30,14 +29,104 @@ for(file size)
     file2 length, first, and last timestamp;
     if(file1 last timestamp < file2 first timestamp ){
       End before the start of the first file;
-    } else if(file1 last timestamp > file2 first timestamp){
-      while(file1 last timestamp > file2 first timestamp){
-        file2 first timestamp = file2 first timestamp->next;
+    } else if((fi1 <= fi2 && fi2 <= l1) || (fi2 <= fi1 && l2 >= fi1)){
+      if(fi1 < fi2 && l1 < l2) {
+          array_start;
+          while(fi2 < fi1){
+            fi1 =  fi1->next;
+          }
+          if(fi1 = fi2){
+            array_start assign value of both fi1_change and fi2; 
+          } else {
+            t1 = labs(fi1_changed -fi2-diff);
+            t2 = labs(fi1_changed->prev- fi2 -diff);
+            if(t1<t2){
+              array_start assign value of both fi1_change and fi2; 
+            } else{
+              array_start assign value of both fi1_change_prev and fi2; 
+            }
+          }
+          array_stop;
+          while(fi2 < l1){
+            fi2 =  fi2->next;
+          }
+          if(fi2 = l1){
+            array_stop assign value of both fi2 and l1; 
+          } else {
+            t1 = labs(fi2_changed -l1-diff);
+            t2 = labs(fi2_changed->prev- l1 -diff);
+            if(t1<t2){
+              array_stop assign value of both fi2_change and L1;      
+              
+            } else{
+              array_stop assign value of both fi1_change_prev and l1; 
+            }
+          }
+      } else if(fi1 = fi2 && l1 = l2){
+        array_start = fi1, fi2;
+        array_stop = l1, l2;
+      } else if (fi1 = fi2 && l2<l1){
+        array_start = fi1, fi2;
+        while(fi1 < l2){
+          fi1 =  fi1->next;
+        }
+        if(fi1 = l2){
+          array_stop assign value of both fi1 and l2; 
+        } else {
+          t1 = labs(fi1_changed -l2-diff);
+          t2 = labs(fi1_changed->prev- l2 -diff);
+          if(t1<t2){
+            array_stop assign value of both fi1_change and L2;      
+          
+          } else{
+            array_stop assign value of both fi1_change_prev and l2; 
+          }
+        }
+      } else if(fi1 = fi2 && l2>l1){
+        array_start = fi1, fi2;
+        array_stop;
+        while(fi2 < l1){
+          fi2 =  fi2->next;
+        }
+        if(fi2 = l1){
+          array_stop assign value of both fi2 and l1; 
+        } else {
+          t1 = labs(fi2_changed -l1-diff);
+          t2 = labs(fi2_changed->prev- l1 -diff);
+          if(t1<t2){
+            array_stop assign value of both fi2_change and L1;      
+          
+          } else{
+            array_stop assign value of both fi2_change_prev and l1; 
+          }
+        }
+      } else if(fi2 = l1 && l2>l1) {
+        array_start = fi1, fi2;
+        array_stop = l1, fi2;
+      } else if (fi1 = fi2 && l2 = fi1) {
+        array_start = fi1, fi2;
+        array_stop = fi1, l2;
+      } else if(l1 = fi2 && l2 = l1){
+        array_start = l1, fi2;
+        array_stop = l1, l2;
+      } else if(fi2 < fi1 && l2 = fi1){
+        array_start = fi1, l2;
+        array_stop = l2, fi1;
+      } else if(fi1 > fi2 && fi1<l2){
+        array_start = fi1, l2;
+        array_stop = l2, fi1;
+      } else if(fi2 < fi1 && l1 = l2){
+        
+      } else if(fi2 < fi1 && l1<l2){
+        
+      } else if(fi1 < fi2 && l2 < l1){
+        
+      } else if(fi1< fi2 && l1 = l2){
+        
       }
-      array[count] = file2 correct timestamp after or equal;
       count++;
       
-    }
+    } 
     
   }
   if(count <= 9){
