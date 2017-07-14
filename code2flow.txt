@@ -291,7 +291,27 @@ if(f1->equal_tmp_start == 1 ){
   
 }
 
-while(first < second){
-  
+while(f < l){
+  tmp =  f;
+  tmp_next = f->next;
+  lst  = first it gone finsh;
+  array_length = count;
+  array_start[count] = tmp->array_start;
+  while (tmp <= lst){
+    if(tmp == lst){
+       remove the file;
+       lst =  next lst;
+    }
+    if(tmp == tmp_next){
+      tmp = tmp_next;
+      array_length = count;
+      array_start[count] = tmp->array_start;
+    }
+    for(i->count){
+      
+    }
+    tmp = tmp->next;
+  }
 }
 end;
+
