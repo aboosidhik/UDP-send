@@ -113,15 +113,142 @@ for(file size)
         array_start = fi1, l2;
         array_stop = l2, fi1;
       } else if(fi1 > fi2 && fi1<l2){
-        array_start = fi1, l2;
-        array_stop = l2, fi1;
+        array_start
+        while(fi2 < fi1){
+          fi2 =  fi2->next;
+        }
+        if(fi2 = fi1){
+          array_start assign value of both fi2 and fi1; 
+        } else {
+          t1 = labs(fi2_changed -fi1-diff);
+          t2 = labs(fi2_changed->prev- fi1 -diff);
+          if(t1<t2){
+            array_start assign value of both fi2_change and fi1;      
+          
+          } else{
+            array_start assign value of both fi2_change_prev and fi1; 
+          }
+        }
+        array_stop;
+        while(fi1 < l2){
+          fi1 =  fi1->next;
+        }
+        if(fi1 = l2){
+          array_stop assign value of both fi1 and l2; 
+        } else {
+          t1 = labs(fi1_changed -l2-diff);
+          t2 = labs(fi1_changed->prev- l2 -diff);
+          if(t1<t2){
+            array_stop assign value of both fi1_change and l2;      
+          
+          } else{
+            array_stop assign value of both fi1_change_prev and l2; 
+          }
+        }
+        
       } else if(fi2 < fi1 && l1 = l2){
+        array_start;
+        while(fi2 < fi1){
+          fi2 = fi2->next;
+        }
+        if(fi2 = fi1){
+          array_start assign value of both fi1 and fi2; 
+        } else {
+          t1 = labs(fi2_changed -fi1-diff);
+          t2 = labs(fi2_changed->prev- fi1 -diff);
+          if(t1<t2){
+            array_start assign value of both fi2_change and fi1;      
+          
+          } else{
+            array_start assign value of both fi2_change_prev and fi1; 
+          }
+        }
+        array_stop = l1,l2;
         
       } else if(fi2 < fi1 && l1<l2){
-        
+        array_start;
+        while(fi2 < fi1){
+          fi2 = fi2->next;
+        }
+        if(fi2 = fi1){
+          array_start assign value of both fi1 and fi2; 
+        } else {
+          t1 = labs(fi2_changed -fi1-diff);
+          t2 = labs(fi2_changed->prev- fi1 -diff);
+          if(t1<t2){
+            array_start assign value of both fi2_change and fi1;      
+          
+          } else{
+            array_start assign value of both fi2_change_prev and fi1; 
+          }
+        }
+        array_stop;
+        while(fi2 < l1){
+          fi2 = fi2->next;
+        }
+        if(fi2 = l1){
+          array_stop assign value of both l1 and fi2; 
+        } else {
+          t1 = labs(fi2_changed -l1-diff);
+          t2 = labs(fi2_changed->prev- l1 -diff);
+          if(t1<t2){
+            array_stop assign value of both fi2_change and l1;      
+          
+          } else{
+            array_stop assign value of both fi2_change_prev and l1; 
+          }
+        }
       } else if(fi1 < fi2 && l2 < l1){
-        
+        array_start;
+        while(fi1 <fi2){
+          fi1 = fi1->next;
+        }
+        if(fi2 = fi1){
+          array_start assign value of both fi1 and fi2; 
+        } else {
+          t1 = labs(fi1_changed -fi2-diff);
+          t2 = labs(fi1_changed->prev- fi2 -diff);
+          if(t1<t2){
+            array_start assign value of both fi1_change and fi2;      
+          
+          } else{
+            array_start assign value of both fi1_change_prev and fi2; 
+          }
+        }
+        array_stop;
+        while(fi1 < l2) {
+          fi1 =  fi1->next;
+        }
+        if(fi1 = l2){
+          array_start assign value of both fi1 and l2; 
+        } else {
+          t1 = labs(fi1_changed -l2-diff);
+          t2 = labs(fi1_changed->prev- l2 -diff);
+          if(t1<t2){
+            array_stop assign value of both fi1_change and l2;      
+          
+          } else{
+            array_stop assign value of both fi1_change_prev and l2; 
+          }
+        }
       } else if(fi1< fi2 && l1 = l2){
+        array_start;
+        while(fi1 < fi2) {
+          fi1 =  fi1->next;
+        }
+        if(fi1 = fi2){
+          array_start assign value of both fi1 and fi2; 
+        } else {
+          t1 = labs(fi1_changed -fi2-diff);
+          t2 = labs(fi1_changed->prev- fi2 -diff);
+          if(t1<t2){
+            array_start assign value of both fi1_change and fi2;      
+          
+          } else{
+            array_start assign value of both fi1_change_prev and fi2; 
+          }
+        }
+        array_stop =  l1, l2;
         
       }
       count++;
