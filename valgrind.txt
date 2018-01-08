@@ -1,0 +1,2 @@
+Valgrind examples
+valgrind --log-file="filename"
