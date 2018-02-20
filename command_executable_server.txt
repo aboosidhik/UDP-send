@@ -1,0 +1,6 @@
+my way is to make a shell script on ~/bin
+if u have already some other ssh scripts, are there
+for example  ~/bin/ssh-sw-relay-a
+
+u need to create it, with the:     ssh- i ~/.ssh/private_key   centos@.....
+and make it executable, qith chmod +x  <scriptfilepath>
